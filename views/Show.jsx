@@ -16,6 +16,7 @@ class Show extends React.Component {
                 <h5>Front 9: {score.front}</h5>
                 <h5>Back 9: {score.back}</h5>
                 <h6>Overall: {score.overall}</h6>
+                <textarea rows="4" cols="50" name='notes'>{score.notes}</textarea>
             </div>
             </>
         )

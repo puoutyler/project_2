@@ -10,6 +10,7 @@ class Index extends React.Component {
                         return(
                             <li>
                                 <a href={`/abovepar/${score._id}`}>{score.course}</a>
+                                <p>{`${this.props.VARIABLE.createdAt}`}</p>
                             </li>
                         )
                     })}
