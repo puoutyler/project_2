@@ -2,7 +2,7 @@ const React = require('react');
 
 class Show extends React.Component {
     render(){
-        const score = this.props.score
+        const {score} = this.props
         return(
             <>
             <div>
