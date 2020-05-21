@@ -62,5 +62,19 @@ scoreController.get('/edit/:id', (req, res) => {
     })
 })
 
+//UPDATE ROUTE
+scoreController.put('/edit/:id', (req, res) => {
+    Score.findByIdAndUpdate(req.params.id, req.body, (error, data) => {
+        res.redirect('/abovepar')
+    })
+})
+
+//DELETE ROUTE
+scoreController.delete(':id', (req, res) => {
+    Score.findByIdAndRemove(req.params.id, (error, data) => {
+        res.redirect('/abovepar')
+    })
+})
+
 //EXPORT
 module.exports = scoreController
