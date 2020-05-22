@@ -43,7 +43,6 @@ scoreController.get('/:id', (req, res) => {
 
 //CREATE ROUTE 
 scoreController.post('/', (req, res) => {
-    show(req.body)
     Score.create(req.body, (error, createdScore) => {
         if(error) {
             show(error)
@@ -51,6 +50,7 @@ scoreController.post('/', (req, res) => {
             res.redirect('/abovepar')
         }
     })
+    show(req.body)
 })
 
 //EDIT ROUTE
@@ -70,7 +70,7 @@ scoreController.put('/edit/:id', (req, res) => {
 })
 
 //DELETE ROUTE
-scoreController.delete(':id', (req, res) => {
+scoreController.delete('/:id', (req, res) => {
     Score.findByIdAndRemove(req.params.id, (error, data) => {
         res.redirect('/abovepar')
     })

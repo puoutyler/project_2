@@ -2,15 +2,22 @@ const React = require('react');
 
 class Index extends React.Component {
     render(){
-        retuern(
+        return(
             <div>
                 <h1>AbovePar</h1>
+                <nav>
+                    <a href='/abovepar/new'>Enter new round</a>
+                </nav>
                 <ul>
-                    {this.props.score.map((score, indec) => {
+                    {this.props.score.map((score, index) => {
                         return(
                             <li>
                                 <a href={`/abovepar/${score._id}`}>{score.course}</a>
-                                <p>{`${this.props.VARIABLE.createdAt}`}</p>
+                                <br/>
+                                <form action={`/abovepar/${score._id}?_method=DELETE`} method="post">
+                                        <input type="submit" value="delete"/>
+                                </form>
+                                {/* <p>{`${this.props.score.createdAt}`}</p> */}
                             </li>
                         )
                     })}
@@ -20,4 +27,4 @@ class Index extends React.Component {
     }
 }
 
-module,exports = Index;
+module.exports = Index;

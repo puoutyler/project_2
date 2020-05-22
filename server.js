@@ -2,13 +2,14 @@
 //Dependencies
 //___________________
 const express = require('express');
-const methodOverride  = require('method-override');
-const mongoose = require ('mongoose');
+const app = express();
+const mongoose = require('mongoose');
+const db = mongoose.connection;
+const show = console.log
+const Score = require('./models/abovepar.js')
+const methodOverride = require('method-override');
 const scoreController = require('./controllers/abovepar.js')
 require('dotenv').config()
-const app = express ();
-const db = mongoose.connection;
-const Score = require('./models/abovepar.js')
 
 //___________________
 //Port
@@ -30,9 +31,6 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on('open' , ()=>{});
 
-// Controllers
-app.use('/abovepar', scoreController)
-
 //___________________
 //Middleware
 //___________________
@@ -42,6 +40,9 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+
+// Controllers
+app.use('/abovepar', scoreController)
 
 //___________________
 // Routes
