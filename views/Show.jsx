@@ -1,13 +1,11 @@
 const React = require('react');
+const AppLayout = require('./AppLayout.jsx')
 
 class Show extends React.Component {
     render(){
         const {score} = this.props
         return(
-            <>
-            <div>
-                <h1>AbovePar</h1>
-            </div>
+            <AppLayout>
             <nav>
                 <a href='/abovepar'>Home</a>
             </nav>
@@ -18,7 +16,7 @@ class Show extends React.Component {
                 <h6>Overall: {score.overall}</h6>
                 <textarea rows="4" cols="50" name='notes'>{score.notes}</textarea>
             </div>
-            </>
+            </AppLayout>
         )
     }
 }

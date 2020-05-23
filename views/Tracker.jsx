@@ -1,12 +1,12 @@
 const React = require('react');
 const AppLayout = require('./AppLayout.jsx')
 
-class Index extends React.Component {
+class Tracker extends React.Component {
     render(){
         return(
             <AppLayout>
                 <div className='container'>
-                    <div className='banner'>
+                <div className='banner'>
                         <h1 className='logo'>AbovePar</h1>
                         <img className='logo-img' src='https://webstockreview.net/images/golf-clipart-flagstick-5.png'/>
                         <h3 className='slogan'>Every stroke counts</h3>
@@ -30,18 +30,22 @@ class Index extends React.Component {
                             </ul>
                         </nav>
                     </div>
-                    <div className='about-container'>
-                    <div className='about-sec'>
-                        <h4 className='about-title'>About us</h4>
-                        <hr></hr>
-                        <p className='about-p'>AbovePar is tool made by golfers, for golfers, that helps you keep track of your improvement. Just sign up and start entering your rounds into our tracker. We then calculate your handicap for you and you can see your improvement every round you play, while also having the ability to add any notes of areas that may need some work.</p>
-                        <img className='about-img'src='https://www.stonehamoaks.com/wp-content/uploads/sites/5789/2016/04/background.jpg'/>
-                    </div>
-                    </div>
+                        {this.props.score.map((score, index) => {
+                            return(
+                                <li>
+                                    <a href={`/abovepar/${score._id}`}>{score.course}</a>
+                                    <br/>
+                                    <form action={`/abovepar/${score._id}?_method=DELETE`} method="post">
+                                        <input type="submit" value="delete"/>
+                                    </form>
+                                    {/* <p>{`${this.props.score.createdAt}`}</p> */}
+                            </li>
+                        )
+                    })}
                 </div>
             </AppLayout>
         )
     }
 }
 
-module.exports = Index;
+module.exports = Tracker;

@@ -23,6 +23,22 @@ scoreController.get ('/', (req, res) => {
     Score.find({}, thisRunsNext)
 })
 
+//SCORES ROUTE
+scoreController.get('/tracker', (req, res) => {
+    const thisRunsNext = (error, allScores) => {
+        show('i ran after')
+        if(error){
+            show(error)
+        } else {
+            const props = {
+                score: allScores
+            }
+            res.render('Tracker', props)
+        }
+    }
+    Score.find({}, thisRunsNext)
+})
+
 //NEW ROUTE
 scoreController.get('/new', (req, res) => {
     res.render('New')
@@ -43,6 +59,7 @@ scoreController.get('/:id', (req, res) => {
 
 //CREATE ROUTE 
 scoreController.post('/', (req, res) => {
+    show(req.body)
     Score.create(req.body, (error, createdScore) => {
         if(error) {
             show(error)
