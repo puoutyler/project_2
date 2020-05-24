@@ -69,7 +69,7 @@ const isAuthenticated = (req, res, next) => {
 //LOGIN PAGE
 app.get('/sessions/new', (req, res) => {
     res.render('sessions/New', {
-        currentUser:req.session.currentUser
+        currentUser: req.session.currentUser
     })
 })
 
