@@ -7,8 +7,10 @@ const show = console.log
 //// ROUTES ////
 ////////////////
 
+overallArray = []
+
 //INDEX ROUTE
-scoreController.get ('/abovepar', (req, res) => {
+scoreController.get ('/', (req, res) => {
     const thisRunsNext = (error, allScores) => {
         show('i ran after')
         if(error){
@@ -64,10 +66,12 @@ scoreController.post('/', (req, res) => {
         if(error) {
             show(error)
         } else {
+            // overallArray.push(req.body.score.overall)
             res.redirect('/abovepar/tracker')
         }
     })
     show(req.body)
+    show(overallArray)
 })
 
 //EDIT ROUTE
@@ -89,7 +93,7 @@ scoreController.put('/edit/:id', (req, res) => {
 //DELETE ROUTE
 scoreController.delete('/:id', (req, res) => {
     Score.findByIdAndRemove(req.params.id, (error, data) => {
-        res.redirect('/abovepar')
+        res.redirect('/abovepar/tracker')
     })
 })
 

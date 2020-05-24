@@ -13,7 +13,7 @@ class Tracker extends React.Component {
                         <nav className='menu'>
                             <ul>
                                 <li className='active'>
-                                    <a className='nav' href='/abovepar/'>Home</a>
+                                    <a className='home-nav' href='/abovepar/'>Home</a>
                                 </li>
                                 <li>
                                     <a className='nav' href='/abovepar/tracker'>Tracker</a>
@@ -30,18 +30,22 @@ class Tracker extends React.Component {
                             </ul>
                         </nav>
                     </div>
+                        <ul className='tracker-list'>
                         {this.props.score.map((score, index) => {
                             return(
                                 <li>
-                                    <a href={`/abovepar/${score._id}`}>{score.course}</a>
+                                    <a className='tracker-course' href={`/abovepar/${score._id}`}>{score.course}</a>
                                     <br/>
+                                    <p className='timestamp'>Entered on: {`${score.createdAt}`}</p>
+                                    <br />
                                     <form action={`/abovepar/${score._id}?_method=DELETE`} method="post">
                                         <input type="submit" value="delete"/>
                                     </form>
-                                    {/* <p>{`${this.props.score.createdAt}`}</p> */}
-                            </li>
+                                    <h4 className='handicap'>{score.overall - 72}</h4>
+                                </li>
                         )
                     })}
+                        </ul>
                 </div>
             </AppLayout>
         )
