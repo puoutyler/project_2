@@ -22,10 +22,10 @@ class New extends React.Component {
                                     <a className='nav' href='/abovepar/new'>New</a>
                                 </li>
                                 <li>
-                                    <a href='#' className='signup'>Sign Up</a>
+                                    <a href='/user/new' className='signup'>Sign Up</a>
                                 </li>
                                 <li>
-                                    <a href='#' className='login'>Login</a>
+                                    <a href='/sessions/' className='login'>Login</a>
                                 </li>
                             </ul>
                         </nav>
