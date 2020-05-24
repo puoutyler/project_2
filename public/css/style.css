@@ -9,39 +9,73 @@
     background: #192b17;
     font-family: 'Cabin', sans-serif;
 }
+
 a, a:hover, a:focus, a:active {
     text-decoration: none !important;
     color: #cdf3be !important;
 }
+
 .menu {
     background-color: #30572c;
     position: relative;
     top: 20px;
 }
+
 .menu ul {
     display: inline-flex;
     margin: 10px;
 }
+
 .menu ul li {
     list-style: none;
     margin: 0 20px;
     cursor: pointer;
 }
+
+.home-nav{
+    padding-left: 50px;
+}
+
+.home-nav:hover{
+    opacity: 0.5;
+    transform: translateY(-.1rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+.nav:hover{
+    opacity: 0.5;
+    transform: translateY(-.1rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
 .active {
     color: #80c266 !important;
 }
+
 .signup {
     top: 10px;
     right: 80px;
     cursor: pointer;
     position: absolute; 
 }
+
+.signup:hover{
+    opacity: 0.5;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
 .login {
     top: 10px;
     right: 180px;
     cursor: pointer;
     position: absolute; 
 }
+
+.login:hover{
+    opacity: 0.5;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
 h1, h3 {
     color: #80c266;
 }
@@ -103,4 +137,43 @@ h3 {
     top: -6px;
 }
 
+.form{
+    color: white;
+    position: relative;
+    top: 60px;
+    left: 300px;
+    width: 300px
+}
 
+.form-title{
+    color: white;
+    font-size: 60px;
+    color: white;
+    position: relative;
+    top: 60px;
+    left: 300px;
+    width: 500px
+}
+
+.form-input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-btn{
+    cursor: pointer;
+}
+
+.form-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-.1rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+.form-img{
+    left: 700px;
+    width: 500px;
+    position: relative;
+    bottom: 280px;
+    border-radius: 20px;
+}

@@ -10,6 +10,10 @@ const Score = require('./models/abovepar.js')
 const methodOverride = require('method-override');
 const scoreController = require('./controllers/abovepar.js')
 require('dotenv').config()
+const userController = require('./controllers/users_controller.js')
+const session = require('express-session');
+const User = require('./models/users.js');
+const bcrypt = require('bcrypt');
 
 //___________________
 //Port
@@ -40,15 +44,60 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 // Controllers
 app.use('/abovepar', scoreController)
+app.use('/user', userController)
+
+const isAuthenticated = (req, res, next) => {
+    if(req.session.currentUser) {
+        return next()
+    }else {
+        res.redirect('/session/new')
+    }
+}
 
 //___________________
 // Routes
 //___________________
 
+//LOGIN PAGE
+app.get('/sessions/new', (req, res) => {
+    res.render('sessions/New', {
+        currentUser:req.session.currentUser
+    })
+})
 
+//AUTHENTICATION ROUTE
+app.post('/sessions/', (req, res) => {
+    User.findOne({username: req.body.username}, (err, foundUser) => {
+        if(err){
+            res.send(err)
+        } else if (!foundUser) {
+            res.redirect('/user/new')
+        } else {
+            if(bcrypt.compareSync(req.body.password, foundUser.password)){
+                req.session.currentUser = foundUser.username
+                res.redirect('/abovepar/tracker')
+                alert(`Welcome ${req.body.username}, you can now start entering your recent scores into our tracker and improve your game!`)
+            } else {
+                alert('WRONG PASSWORD')
+            }
+        }
+    })
+})
+
+//LOGOUT
+app.delete('/sessions/', (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/sessions/new')
+    })
+})
 
 //___________________
 //Listener

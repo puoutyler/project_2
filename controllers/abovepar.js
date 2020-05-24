@@ -23,7 +23,7 @@ scoreController.get ('/', (req, res) => {
     Score.find({}, thisRunsNext)
 })
 
-//SCORES ROUTE
+//TRACKER ROUTE
 scoreController.get('/tracker', (req, res) => {
     const thisRunsNext = (error, allScores) => {
         show('i ran after')
@@ -64,7 +64,7 @@ scoreController.post('/', (req, res) => {
         if(error) {
             show(error)
         } else {
-            res.redirect('/abovepar')
+            res.redirect('/abovepar/tracker')
         }
     })
     show(req.body)
