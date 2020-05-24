@@ -8,7 +8,7 @@ const show = console.log
 ////////////////
 
 //INDEX ROUTE
-scoreController.get ('/', (req, res) => {
+scoreController.get ('/abovepar', (req, res) => {
     const thisRunsNext = (error, allScores) => {
         show('i ran after')
         if(error){
