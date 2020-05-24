@@ -3,6 +3,7 @@ const React = require('react');
 class LoginUser extends React.Component {
     render() {
         return(
+            <>
             <div className='banner'>
                         <h1 className='logo'>AbovePar</h1>
                         <img className='logo-img' src='https://webstockreview.net/images/golf-clipart-flagstick-5.png'/>
@@ -37,6 +38,7 @@ class LoginUser extends React.Component {
                     <input type="submit" value="Login" />
                 </form>
             </div>
+        </>
         );
     }
 }
