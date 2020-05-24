@@ -38,7 +38,14 @@ scoreController.get('/tracker', (req, res) => {
             res.render('Tracker', props)
         }
     }
-    Score.find({}, thisRunsNext)
+    Score.find({}, thisRunsNext);
+    // Score.find({overall}, {$avg: {overall}}, (error, overallScore) => {
+    //     if(error){
+    //         show(error)
+    //     } else {
+    //         show(overallScore)
+    //     }
+    // });
 })
 
 //NEW ROUTE
@@ -66,7 +73,6 @@ scoreController.post('/', (req, res) => {
         if(error) {
             show(error)
         } else {
-            // overallArray.push(req.body.score.overall)
             res.redirect('/abovepar/tracker')
         }
     })

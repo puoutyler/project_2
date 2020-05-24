@@ -22,30 +22,33 @@ class Tracker extends React.Component {
                                     <a className='nav' href='/abovepar/new'>New</a>
                                 </li>
                                 <li>
-                                    <a href='#' className='signup'>Sign Up</a>
+                                    <a href='/user/new' className='signup'>Sign Up</a>
                                 </li>
                                 <li>
-                                    <a href='#' className='login'>Login</a>
+                                    <a href='/sessions/new' className='login'>Login</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
+                    <div className='tracker-container'>
                         <ul className='tracker-list'>
                         {this.props.score.map((score, index) => {
                             return(
                                 <li>
                                     <a className='tracker-course' href={`/abovepar/${score._id}`}>{score.course}</a>
                                     <br/>
+                                    <h4 className='timestamp'>Overall score: {score.overall}</h4>
                                     <p className='timestamp'>Entered on: {`${score.createdAt}`}</p>
                                     <br />
                                     <form action={`/abovepar/${score._id}?_method=DELETE`} method="post">
                                         <input type="submit" value="delete"/>
                                     </form>
-                                    <h4 className='handicap'>{score.overall - 72}</h4>
+                                    {/* <h4 className='handicap'>{score.overall - 72}</h4> */}
                                 </li>
-                        )
-                    })}
+                            )
+                        })}
                         </ul>
+                    </div>
                 </div>
             </AppLayout>
         )

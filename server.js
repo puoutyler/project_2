@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 const scoreController = require('./controllers/abovepar.js')
 require('dotenv').config()
 const userController = require('./controllers/users_controller.js')
-// const session = require('express-session');
+const session = require('express-session');
 const User = require('./models/users.js');
 const bcrypt = require('bcrypt');
 
@@ -44,11 +44,11 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 // Controllers
 app.use('/abovepar', scoreController)

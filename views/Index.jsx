@@ -22,7 +22,7 @@ class Index extends React.Component {
                                     <a className='nav' href='/abovepar/new'>New</a>
                                 </li>
                                 <li>
-                                    <a href='/sessions/' className='signup'>Sign Up</a>
+                                    <a href='/user/new' className='signup'>Sign Up</a>
                                 </li>
                                 <li>
                                     <a href='/sessions/new' className='login'>Login</a>

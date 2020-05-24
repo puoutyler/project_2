@@ -184,8 +184,12 @@ h3 {
     position: relative;
     top: 60px;
     left: 200px;
-    width: 500px;
+    width: 900px;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 300px;
+    padding-bottom: 10px;
 }
 
 .handicap{
@@ -198,11 +202,16 @@ h3 {
 }
 
 .tracker-course{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .tracker-course:hover{
     opacity: 0.8;
     transform: translateY(-.1rem);
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+.tracker-contianer{
+    height: 200px;
+    width: 500px;
 }
