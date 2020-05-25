@@ -7,7 +7,14 @@ const show = console.log
 //// ROUTES ////
 ////////////////
 
-overallArray = []
+const isAuthenticated = (req, res, next) => {
+    if(req.session.currentUser) {
+        return next()
+    }else {
+        res.redirect('/sessions/new')
+    }
+}
+
 
 //INDEX ROUTE
 scoreController.get ('/', (req, res) => {
@@ -27,7 +34,7 @@ scoreController.get ('/', (req, res) => {
 })
 
 //TRACKER ROUTE
-scoreController.get('/tracker', (req, res) => {
+scoreController.get('/tracker', isAuthenticated, (req, res) => {
     const thisRunsNext = (error, allScores) => {
         show('i ran after')
         if(error){
@@ -52,7 +59,9 @@ scoreController.get('/tracker', (req, res) => {
 
 //NEW ROUTE
 scoreController.get('/new', (req, res) => {
-    res.render('New')
+    res.render('New', {
+        username: req.session.currentUser
+    })
 })
 
 //SHOW ROUTE

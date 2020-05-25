@@ -3,10 +3,16 @@ const AppLayout = require('./AppLayout.jsx')
 
 class Tracker extends React.Component {
     render(){
+        const logout = (<form action='/sessions/?_method=DELETE' method="post">
+        <input className='logout-btn' type='submit' value='Logout'/>
+    </form>)
+        const login = <a href='/sessions/new' className='login'>Login</a>
+        const showUsername = <a className='username' href='#'>{`Welcome, ${this.props.username}`}</a>
+        const signup = <a href='/user/new' className='signup'>Sign Up</a>
         return(
             <AppLayout>
                 <div className='container'>
-                <div className='banner'>
+                    <div className='banner'>
                         <h1 className='logo'>AbovePar</h1>
                         <img className='logo-img' src='https://webstockreview.net/images/golf-clipart-flagstick-5.png'/>
                         <h3 className='slogan'>Every stroke counts</h3>
@@ -22,10 +28,10 @@ class Tracker extends React.Component {
                                     <a className='nav' href='/abovepar/new'>New</a>
                                 </li>
                                 <li>
-                                    <a href='/user/new' className='signup'>Sign Up</a>
+                                    {this.props.username ? showUsername : signup}
                                 </li>
                                 <li>
-                                    <a href='/sessions/new' className='login'>Login</a>
+                                    {this.props.username ? logout : login}
                                 </li>
                             </ul>
                         </nav>
