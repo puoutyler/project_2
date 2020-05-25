@@ -42,7 +42,7 @@ class NewUser extends React.Component {
                         <br />
                         password: <input className='form-input' type="password" name="password" />
                         <br />
-                        <input className='form-btn' type="submit" value="Create User" />
+                        <input className='form-btn' type="submit" value="Register" />
                     </form>
                 </div>
             </AppLayout>
