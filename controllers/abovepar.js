@@ -17,7 +17,8 @@ scoreController.get ('/', (req, res) => {
             show(error)
         } else {
             const props = {
-                score: allScores
+                score: allScores,
+                username: req.session.currentUser
             }
             res.render('Index', props)
         }
@@ -33,7 +34,8 @@ scoreController.get('/tracker', (req, res) => {
             show(error)
         } else {
             const props = {
-                score: allScores
+                score: allScores,
+                username: req.session.currentUser
             }
             res.render('Tracker', props)
         }
@@ -60,7 +62,8 @@ scoreController.get('/:id', (req, res) => {
             show(error)
         } else {
             res.render('Show', {
-                score: foundScore
+                score: foundScore,
+                username: req.session.currentUser
             })
         }
     })
@@ -84,7 +87,8 @@ scoreController.post('/', (req, res) => {
 scoreController.get('/edit/:id', (req, res) => {
     Score.findById(req.params.id, (error, foundScore) => {
         res.render('Edit', {
-            score: foundScore
+            score: foundScore,
+            username: req.session.currentUser
         })
     })
 })
@@ -92,7 +96,7 @@ scoreController.get('/edit/:id', (req, res) => {
 //UPDATE ROUTE
 scoreController.put('/edit/:id', (req, res) => {
     Score.findByIdAndUpdate(req.params.id, req.body, (error, data) => {
-        res.redirect('/abovepar')
+        res.redirect('/abovepar/tracker')
     })
 })
 

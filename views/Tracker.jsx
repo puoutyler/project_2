@@ -41,7 +41,7 @@ class Tracker extends React.Component {
                                     <p className='timestamp'>Entered on: {`${score.createdAt}`}</p>
                                     <br />
                                     <form action={`/abovepar/${score._id}?_method=DELETE`} method="post">
-                                        <input type="submit" value="delete"/>
+                                        <input className='form-btn' type="submit" value="delete"/>
                                     </form>
                                     {/* <h4 className='handicap'>{score.overall - 72}</h4> */}
                                 </li>

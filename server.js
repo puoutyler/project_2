@@ -84,9 +84,9 @@ app.post('/sessions/', (req, res) => {
             if(bcrypt.compareSync(req.body.password, foundUser.password)){
                 req.session.currentUser = foundUser.username
                 res.redirect('/abovepar/tracker')
-                alert(`Welcome ${req.body.username}, you can now start entering your recent scores into our tracker and improve your game!`)
+                show(foundUser.username)
             } else {
-                alert('WRONG PASSWORD')
+                res.send('Wrong password')
             }
         }
     })
