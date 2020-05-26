@@ -6,7 +6,7 @@ class Tracker extends React.Component {
         const logout = (<form action='/sessions/?_method=DELETE' method="post">
         <input className='logout-btn' type='submit' value='Logout'/>
     </form>)
-        const login = <a href='/sessions/new' className='login'>Login</a>
+        const login = <a href='/sessions/new' className='login'>Log In</a>
         const showUsername = <a className='username' href='#'>{`Welcome, ${this.props.username}`}</a>
         const signup = <a href='/user/new' className='signup'>Sign Up</a>
         return(
