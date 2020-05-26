@@ -9,6 +9,7 @@ class Edit extends React.Component {
         const login = <a href='/sessions/new' className='login'>Log In</a>
         const showUsername = <a className='username' href='#'>{`Welcome, ${this.props.username}`}</a>
         const signup = <a href='/user/new' className='signup'>Sign Up</a>
+        const {score} = this.props
         return(
             <AppLayout>
                 <div className='container'>

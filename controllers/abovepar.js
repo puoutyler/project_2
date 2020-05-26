@@ -48,13 +48,6 @@ scoreController.get('/tracker', isAuthenticated, (req, res) => {
         }
     }
     Score.find({}, thisRunsNext);
-    // Score.find({overall}, {$avg: {overall}}, (error, overallScore) => {
-    //     if(error){
-    //         show(error)
-    //     } else {
-    //         show(overallScore)
-    //     }
-    // });
 })
 
 //NEW ROUTE
@@ -89,7 +82,6 @@ scoreController.post('/', (req, res) => {
         }
     })
     show(req.body)
-    show(overallArray)
 })
 
 //EDIT ROUTE
