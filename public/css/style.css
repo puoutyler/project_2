@@ -314,6 +314,8 @@ h3 {
     animation: shift 20s infinite linear;
 }
 
+/* Used for the slider https://www.youtube.com/watch?v=HxDS7kfLLz8 */
+
 @keyframes 
 
 shift{
