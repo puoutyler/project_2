@@ -135,6 +135,7 @@ h3 {
     left: 180px;
     padding-top: 100px;
     font-family: 'Source Sans Pro', sans-serif;
+    height: 300px;
 }
 
 .logo-img{
@@ -285,3 +286,45 @@ h3 {
     opacity: 0.8;
 }
 
+.slider{
+    margin: 50px auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px black;
+    overflow: hidden;
+    position: relative;
+    left: 600px;
+    width: 500px;
+    position: relative;
+    bottom: 280px;
+    border-radius: 20px;
+}
+
+.slider figure img {
+    width: 20%;
+    height: 300px;
+    float: left;
+}
+
+.slider figure{
+    position: relative;
+    width: 500%;
+    margin: 0px;
+    left: 900px;
+    animation: shift 20s infinite linear;
+}
+
+@keyframes 
+
+shift{
+    0%{left: 0%;}
+    15%{left: 0%;}
+    20%{left: -100%;}
+    35%{left: -100%;}
+    40%{left: -200%;}
+    60%{left: -200%;}
+    65%{left: -300%;}
+    80%{left: -300%;}
+    85%{left: -400%;} 
+    100%{left: -400%;} 
+}
