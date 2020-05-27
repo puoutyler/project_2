@@ -42,7 +42,7 @@ class Edit extends React.Component {
                         Course:  <input className='form-input' type='text' name='course' value={score.course}/> <br/>
                         Front 9 score: <input className='form-input' type='text' name='front' value={score.front}/> <br/>
                         Back 9 score: <input className='form-input' type='text' name='back' value={score.back}/> <br/>
-                        Overall score = <input className='form-input' type='text' name='overall' value={score.overall}/> <br/>
+                        Overall score: <input className='form-input' type='text' name='overall' value={score.overall}/> <br/>
                         <textarea className='form-input' rows="4" cols="50" name='notes'>{score.notes}</textarea>
                         <input className='form-btn' type="submit" name="" value="Edit round"/>
                         <img className='edit-img' src='https://www.liveabout.com/thmb/eGUhA00MERxoesqjsk14_LjkFwg=/1609x1207/smart/filters:no_upscale()/marker-scorecard-56bf86e33df78c0b138e5ace.jpg'/>
