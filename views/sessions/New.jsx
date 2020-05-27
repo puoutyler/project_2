@@ -36,7 +36,7 @@ class LoginUser extends React.Component {
                             </ul>
                         </nav>
                     </div>
-                    <h1 className='form-title'>Login</h1>
+                    <h1 className='form-title'>Log In</h1>
                     <form className='form' action="/sessions/" method="POST">
                         username: <input className='form-input' type="text" name="username" />
                         <br />
