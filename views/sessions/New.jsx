@@ -42,7 +42,7 @@ class LoginUser extends React.Component {
                         <br />
                         password: <input className='form-input' type="password" name="password" />
                         <br />
-                        <input className='form-btn' type="submit" value="Login" />
+                        <input className='form-btn' type="submit" value="Log In" />
                     </form>
                 </div>
             </AppLayout>
